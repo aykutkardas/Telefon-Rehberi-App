@@ -1,0 +1,10 @@
+.Form {
+    margin-top: 25px;
+}
+
+.Form button {
+    min-width: 50px;
+}
+.Form svg.icon {
+    width: 1em;
+}

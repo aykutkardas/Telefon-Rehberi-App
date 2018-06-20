@@ -1,0 +1,8 @@
+.Filter {
+    margin-top: 25px;
+}
+
+.Filter svg.icon {
+    width: 1em !important;
+    margin-left: 12px;
+}

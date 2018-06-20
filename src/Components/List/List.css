@@ -1,0 +1,14 @@
+.List {
+    max-height: 300px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.List button {
+    min-width: 40px;
+}
+
+.List button svg.icon {
+    color: red;
+    width: 1em !important;
+}
