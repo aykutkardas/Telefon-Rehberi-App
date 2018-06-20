@@ -2,6 +2,7 @@
   "name": "telefon-rehberi-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/aykutkardas/Telefon-Rehberi-App",
   "dependencies": {
     "bulma": "^0.7.1",
     "react": "^16.4.1",
