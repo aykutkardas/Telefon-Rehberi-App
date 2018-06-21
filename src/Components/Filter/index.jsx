@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'react-icomoon';
+import { connect } from 'react-redux';
+import { filteredList } from '../../Actions/phoneActions';
 
 import './Filter.css';
 
@@ -13,7 +15,7 @@ const Filter = (props) => (
                 </span>
 
                 <input
-                    onChange={props.handleFilter}
+                    onChange={props.onFilteredList}
                     value={props.filterText}
                     type="text"
                     className="input"
@@ -25,8 +27,16 @@ const Filter = (props) => (
 );
 
 Filter.propTypes = {
-    handleFilter: PropTypes.func.isRequired,
+    onFilteredList: PropTypes.func.isRequired,
     filterText: PropTypes.string.isRequired
 };
 
-export default Filter;
+const mapStateToProps = (state, props) => {
+    return state;
+}
+
+const mapDispatchToProps = {
+    onFilteredList: filteredList
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter)

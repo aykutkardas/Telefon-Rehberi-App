@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import './Contact.css';
 
@@ -23,11 +23,6 @@ export default class Contact extends Component {
     filterText: ''
   }
 
-  static propTypes = {
-    saveNewPhone: PropTypes.func.isRequired,
-    removePhone:  PropTypes.func.isRequired,
-    list:         PropTypes.array.isRequired
-  }
 
   handleUniqueControl(phone){
     const controlledList = this.props.list.filter(item => item.phone === phoneFormatter(phone) ? true : false);
@@ -57,7 +52,6 @@ export default class Contact extends Component {
       <div className="Contact box">
       
         <List 
-          list={this.props.list} 
           filterText={this.state.filterText} 
           handleRemove={this.handleRemove}/>
 
@@ -66,7 +60,6 @@ export default class Contact extends Component {
           handleFilter={this.handleFilter} />
 
         <Form 
-          handleSubmit={this.handleSubmit}
           handleUniqueControl={this.handleUniqueControl}/>
 
       </div>

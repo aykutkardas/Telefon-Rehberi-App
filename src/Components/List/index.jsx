@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import Icon from 'react-icomoon';
+import { connect } from 'react-redux';
+import { removePhone } from '../../Actions/phoneActions';
 
 import './List.css';
 
-export default class List extends Component {
+class List extends Component {
     
     constructor(props) {
         super();
@@ -11,7 +13,7 @@ export default class List extends Component {
     }
 
     handleClick(phone) {
-        this.props.handleRemove(phone);
+        this.props.onRemovePhone(phone);
     }
 
     render() {
@@ -55,3 +57,13 @@ export default class List extends Component {
         )
     }
 }
+
+const mapStateToProps = (state, props) => {
+    return state;
+}
+
+const mapDispatchToProps = {
+    onRemovePhone: removePhone
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(List)

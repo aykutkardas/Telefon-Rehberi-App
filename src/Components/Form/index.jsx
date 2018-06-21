@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
-import './Form.css'
+import { connect } from 'react-redux';
+import { addPhone } from '../../Actions/phoneActions';
+import './Form.css';
+import phoneFormatter from '../../Modules/phoneFormatter';
 
 
 import AddButton from '../AddButton';
 
-export default class Form extends Component {
+class Form extends Component {
 
   constructor(props) {
     super();
@@ -22,12 +24,19 @@ export default class Form extends Component {
   }
 
   static propTypes = {
-    handleSubmit: PropTypes.func.isRequired,
     handleUniqueControl: PropTypes.func.isRequired
   }
 
+  handleUniqueControl(phone) {
+
+    return !(this.props.list.some(
+      item => item.phone === phoneFormatter(phone) ? true : false
+    ));
+
+  }
+
   handleChange(e) {
-    let isUnique = this.props.handleUniqueControl(
+    let isUnique = this.handleUniqueControl(
       e.target.name === 'phone' ? e.target.value : this.state.phone
     );
     
@@ -44,11 +53,17 @@ export default class Form extends Component {
     if(this.state.name === '' || this.state.phone === '')
       return false;
 
-    this.props.handleSubmit({...this.state});
+    const {name, phone} = this.state;
+    this.props.onAddPhone({
+      name,
+      phone
+    });
+
     this.setState({
       name: '',
       phone: ''
     });
+
   }
 
   render() {
@@ -95,3 +110,13 @@ export default class Form extends Component {
     )
   }
 }
+
+const mapStateToProps = (state, props) => {
+  return state;
+}
+
+const mapDispatchToProps = {
+  onAddPhone: addPhone
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form)
