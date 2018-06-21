@@ -12,7 +12,6 @@ export function addPhone(newPhone){
 }
 
 export function removePhone(phone) {
-    console.log(phone)
     return {
         type: PHONE_REMOVE,
         payload: {

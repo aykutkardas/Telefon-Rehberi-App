@@ -27,30 +27,28 @@ class List extends Component {
             }
         );
 
+        const filteredListElement = filteredList
+            .map((item, index) => (
+                <tr key={item.phone}>
+                    <td>{item.name}</td>
+                    <td>{item.phone}</td>
+                    <td className="has-text-right">
+                        <button className="button" onClick={() => this.handleClick(item.phone)}>
+                            <Icon icon="bin" />
+                        </button>
+                    </td>
+                </tr>
+        ));
+
         return (
             <div className="List">
                 <table className="table is-striped is-fullwidth">
                     <tbody>
                         <tr>
-                            <th>
-                                <Icon icon="user" />
-                            </th>
-                            <th colSpan="2">
-                                <Icon icon="phone" />
-                            </th>
+                            <th><Icon icon="user" /></th>
+                            <th colSpan="2"><Icon icon="phone" /></th>
                         </tr>
-                        {filteredList.map(item => (
-                            <tr key={item.phone}>
-                                <td>{item.name}</td>
-                                <td>{item.phone}</td>
-                                <td className="has-text-right">
-                                    <button className="button" onClick={() => this.handleClick(item.phone)}>
-                                        <Icon icon="bin" />
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-
+                        { filteredListElement }
                     </tbody>
                 </table>
             </div>
