@@ -15,4 +15,8 @@ ___
 5. bulma
 
 ___
+
+### Preview
+![Preview](https://raw.githubusercontent.com/aykutkardas/Telefon-Rehberi-App/master/preview-app.png)
+
 ### with **ReactJS**
